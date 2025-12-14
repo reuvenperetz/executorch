@@ -28,7 +28,7 @@ which model-converter
 
 export PYTHONPATH="$PYTHONPATH:$(pwd -P)/../ELIR"
 
-sed -i 's/^[[:space:]]*self\.to(x\.device)/# &/' "../ELIR/ELIR/models/elir.py"
+#sed -i 's/^[[:space:]]*self\.to(x\.device)/# &/' "../ELIR/ELIR/models/elir.py"
 
 
 python -m examples.arm.aot_arm_compiler \
@@ -37,7 +37,7 @@ python -m examples.arm.aot_arm_compiler \
   --quantize \
   --output=simple_example.pte \
   --target=vgf \
-  --intermediate=intermediate_artifacts_dir 
+  --intermediate=intermediate_artifacts_dir
 
 
 
