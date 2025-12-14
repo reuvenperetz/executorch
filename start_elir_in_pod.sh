@@ -28,6 +28,9 @@ which model-converter
 
 export PYTHONPATH="$PYTHONPATH:$(pwd -P)/../ELIR"
 
+sed -i 's/^[[:space:]]*self\.to(x\.device)/# &/' "../ELIR/ELIR/models/yourfile.py"
+
+
 python -m examples.arm.aot_arm_compiler \
   --model_name=elir \
   --delegate \
