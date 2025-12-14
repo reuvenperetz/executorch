@@ -9,6 +9,7 @@ from enum import Enum
 
 
 class Model(str, Enum):
+    elir = "elir"
     Mul = "mul"
     Linear = "linear"
     Add = "add"
@@ -54,6 +55,7 @@ class Backend(str, Enum):
 
 
 MODEL_NAME_TO_MODEL = {
+    str(Model.elir): ("elir", "ELIRModel"),
     str(Model.Mul): ("toy_model", "MulModule"),
     str(Model.Linear): ("toy_model", "LinearModule"),
     str(Model.Add): ("toy_model", "AddModule"),

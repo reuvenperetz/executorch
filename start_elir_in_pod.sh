@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 python3.12 -m venv .venv    # you can work with a different python version but this canvas was created using python3.12
 source .venv/bin/activate
 pip install --upgrade pip
