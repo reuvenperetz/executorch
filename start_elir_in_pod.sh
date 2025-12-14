@@ -10,7 +10,7 @@ git clone https://github.com/eladc-git/ELIR.git
 cd executorch
 
 ./install_executorch.sh
-pin install diffusers
+pip install diffusers
 
 
 git config --global user.name "Mona Lisa"
