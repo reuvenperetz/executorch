@@ -28,8 +28,10 @@ which model-converter
 
 export PYTHONPATH="$PYTHONPATH:$(pwd -P)/../ELIR"
 
-#sed -i 's/^[[:space:]]*self\.to(x\.device)/# &/' "../ELIR/ELIR/models/elir.py"
+sed -i 's/^[[:space:]]*self\.to(x\.device)/# &/' "../ELIR/ELIR/models/elir.py"
 
+cp schema/program.fbs exir/_serialize/
+cp schema/scalar_type.fbs exir/_serialize/
 
 python -m examples.arm.aot_arm_compiler \
   --model_name=elir \
@@ -38,6 +40,7 @@ python -m examples.arm.aot_arm_compiler \
   --output=simple_example.pte \
   --target=vgf \
   --intermediate=intermediate_artifacts_dir
+  -s=pip-out/temp.linux-x86_64-cpython-312/cmake-out/kernels/quantized/libquantized_ops_aot_lib.so
 
 
 

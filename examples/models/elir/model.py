@@ -21,7 +21,7 @@ class ELIRModel(EagerModelBase):
 
     def get_eager_model(self) -> Elir:
         from ELIR.models.elir import Elir
-        model_params = {'fm_cfg': {'k_steps': 3, 'sigma_s': 0.1, 'latent_shape': [16, 32, 32], 'seed': 2025},
+        model_params = {'fm_cfg': {'k_steps': 1, 'sigma_s': 0.1, 'latent_shape': [16, 32, 32], 'seed': 2025},
                         'fmir_cfg': {'name': 'lunet',
                                      'params': {'ch_mult': [1, 2, 1, 2], 'n_mid_blocks': 1, 'in_channels': 16,
                                                 'hid_channels': 128, 'out_channels': 16,
@@ -35,10 +35,11 @@ class ELIRModel(EagerModelBase):
                         'dec_cfg': {'name': 'tiny_dec',
                                     'trainable': False}}
         model = Elir(**model_params)
+        model.cpu()
         return model
 
     def get_example_inputs(self):
-        return (torch.randn(1, 3, 512, 512), )
+        return (torch.randn(1, 3, 32, 32).cpu(), )
         dataset = CelebADataset(os.path.join("/Users/reuper01/PycharmProjects/ELIR/ELIR/datasets/celebA/", "test"),
                                 "sr",
                                 32)
