@@ -44,4 +44,4 @@ python -m examples.arm.aot_arm_compiler \
 
 
 
-sleep 12h
+sleep 24h
